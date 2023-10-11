@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "ReactJS extension",
+  "version": "1.0.0",
+  "icons":{       
+    "16" : "icon.png",
+    "48" : "icon.png",
+    "128" : "icon.png"
+  
+  },
+  "description": "Boilerplate code for creating a ReactJS chrome extension.",
+  "action": {
+    "default_title": "Click me",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "bookmarks",
+    "tabs",
+    "storage",
+    "identity"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "chrome_url_overrides": {
+    "newtab":  "newTab.html",
+    "https://www.reddit.com/" : "newTab.html",
+    "http::reddit.com" : "newTab.html"
+},
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.google.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ]
+
+
+}
