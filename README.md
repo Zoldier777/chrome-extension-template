@@ -1,2 +1,3 @@
 # chrome-extension-template
-In progress. Env setup.
+App In progress. Env setup.
+Template can still be used.
