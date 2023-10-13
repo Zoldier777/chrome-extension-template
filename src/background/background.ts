@@ -13,10 +13,16 @@ chrome.runtime.onMessage.addListener((msg,sender,sendResponse) => {
 function handleUrlChange(tabId, changeInfo, tab) {
     if (changeInfo.url) {
       const newUrl = changeInfo.url;
+      // pattern for matching as wellas filtering subdir   
+      const regex = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n?]+)?/
+      const domain= newUrl.match(regex)
+      if (domain) {
+        const extractedDomain = domain[1];
+        console.log("Domain:", extractedDomain);
+        console.log(domain)
+      };
       console.log('URL changed:', newUrl);
     }
   }
-  // Add the event listener
+  // Callback when you create or update the current tab.
   chrome.tabs.onUpdated.addListener(handleUrlChange);
-    
-  
