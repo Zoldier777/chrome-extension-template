@@ -22,15 +22,14 @@
     "bookmarks",
     "tabs",
     "storage",
-    "identity"
+    "identity",
+    "activeTab"
   ],
   "host_permissions": [
     "*://*/*"
   ],
   "chrome_url_overrides": {
-    "newtab":  "newTab.html",
-    "https://www.reddit.com/" : "newTab.html",
-    "http::reddit.com" : "newTab.html"
+    "newtab":  "newTab.html"
 },
 
   "content_scripts": [

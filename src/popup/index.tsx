@@ -9,9 +9,8 @@ function init() {
         throw new Error("Can not find AppContainer");
     }
     const root = createRoot(appContainer)
-    console.log(appContainer)
-    root.render(<Popup/>); // RENDER MAIN COMPONENT
-
+    // console.log(appContainer)
+    root.render(<Popup/>);
 }
 init()
     

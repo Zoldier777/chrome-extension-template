@@ -11,11 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@react-spring/parallax": "^9.7.3",
     "@types/chrome": "^0.0.246",
     "@types/react": "^18.2.25",
     "@types/react-dom": "^18.2.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2",
     "webpack-merge": "^5.9.0"
@@ -24,6 +26,7 @@
     "autoprefixer": "^10.4.16",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
     "postcss": "^8.4.31",
     "postcss-loader": "^7.3.3",

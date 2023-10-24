@@ -1,28 +1,27 @@
-chrome.runtime.onInstalled.addListener((details) => {
-    console.log("Extension has been installed")
-});
-chrome.bookmarks.onCreated.addListener(() => {
-console.log("Bookmark has been added")
-});
 chrome.runtime.onMessage.addListener((msg,sender,sendResponse) => {
     console.log(msg),
     console.log(sender),
     sendResponse("Front the background script");
 })
-// Create a function to handle URL changes
 function handleUrlChange(tabId, changeInfo, tab) {
-    if (changeInfo.url) {
-      const newUrl = changeInfo.url;
-      // pattern for matching as wellas filtering subdir   
-      const regex = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n?]+)?/
-      const domain= newUrl.match(regex)
-      if (domain) {
-        const extractedDomain = domain[1];
-        console.log("Domain:", extractedDomain);
-        console.log(domain)
-      };
-      console.log('URL changed:', newUrl);
+  if (changeInfo.url) {
+    const newUrl = changeInfo.url;
+    const regex = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/\n?]+)?/;
+    const domain = newUrl.match(regex);
+
+    if (domain) {
+      const extractedDomain = domain[1];
+      console.log("Domain:", extractedDomain);
+      chrome.storage.sync.get({ blacklist: [] }, function (result) {
+        const blacklist = result.blacklist;
+        if (blacklist.includes(extractedDomain)) {
+          console.log('URL found in blacklist:', extractedDomain);
+          chrome.tabs.update(tabId, { url: 'chrome://newtab' });
+        }
+      });
     }
+ 
   }
-  // Callback when you create or update the current tab.
-  chrome.tabs.onUpdated.addListener(handleUrlChange);
+}
+
+chrome.tabs.onUpdated.addListener(handleUrlChange);

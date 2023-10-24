@@ -4,6 +4,7 @@ import Tabs from "./tabs";
 import {
   HashRouter as Router,
 } from "react-router-dom";
+import '../assets/url.css';
 
 function init() {
     const appContainer = document.createElement('div')
@@ -12,7 +13,7 @@ function init() {
         throw new Error("Can not find AppContainer");
     }
     const root = createRoot(appContainer)
-    console.log(appContainer)
+    // console.log(appContainer)
     root.render(<Router><Tabs/></Router>); // RENDER MAIN COMPONENT
 }
 
