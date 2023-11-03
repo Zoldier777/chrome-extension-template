@@ -5,3 +5,8 @@ body {
     background-size: cover;
     background-position: center center;
 }
+
+.custom-clear-box {
+    margin-right: 12.5%;
+
+}

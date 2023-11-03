@@ -47,7 +47,7 @@ const Popup = () => {
         <button className='py-4 px-3 bg-indigo-500 text-white m-2 rounded-lg'>Mod</button>
       </form>
       <div className="flex justify-end item-center">
-      <button onClick={clearAllBlacklist} className='py-4 px-3 bg-red-500 text-white mr-4 rounded-lg'>Clear</button>
+      <button onClick={clearAllBlacklist} className='py-4 px-3 bg-red-500 text-white rounded-lg custom-clear-box'>Clear</button>
       </div>
       
 
